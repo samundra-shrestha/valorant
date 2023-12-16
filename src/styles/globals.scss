@@ -1,5 +1,5 @@
 @import url("https://fonts.cdnfonts.com/css/first-job");
-@import url("https://fonts.cdnfonts.com/css/valorant");
+// @import url("https://fonts.cdnfonts.com/css/valorant");
 @import url("https://fonts.cdnfonts.com/css/xifiction");
 @import url("https://fonts.googleapis.com/css2?family=Fredoka&family=Roboto:wght@400;900&display=swap");
 
@@ -36,7 +36,7 @@ img {
   object-fit: contain;
 }
 main {
-  --bg-color: var(var(--white));
+  --bg-color: var(--white);
   overflow: hidden;
   display: grid;
   place-items: center;
@@ -46,40 +46,63 @@ main {
   transition: background-color .15s ease-in-out;
 }
 
+.logo{
+  position: absolute;
+  left: 2.084%;
+  top:4.392%;
+  width: 2.5523vw;
+}
+
 h1 {
   --stroke-width: clamp(0.2px, 0.1vw, 10.6px);
   --stroke-width-negative: calc(-1 * var(--stroke-width));
+  --stroke-color: var(--red);
+  --before-stroke-color: var(--red);
+  --before-text-color: var(--white);
+  --effect-opacity: 0.1;
+  --after-text-color: var(--red);
   color: var(--white);
   font-family: var(--highlight-font);
   line-height: 1.1;
   font-size: clamp(36px, 11vw, 10.7vw);
   text-transform: uppercase;
   text-align: center;
-  text-shadow: var(--stroke-width) 0 var(--red),
-    var(--stroke-width-negative) 0px var(--red),
-    0 var(--stroke-width) var(--red),
-    0px var(--stroke-width-negative) var(--red);
+  text-shadow: var(--stroke-width) 0 var(--stroke-color),
+    var(--stroke-width-negative) 0px var(--stroke-color),
+    0 var(--stroke-width) var(--stroke-color),
+    0px var(--stroke-width-negative) var(--stroke-color);
   position: relative;
+  z-index: 1;
   // top: 50%;
   // left: 50%;
   // transform: translate(-50%, -50%);
+  transition: opacity .5s linear;
   &::before {
+    color: var(--before-text-color);
     content: attr(title);
     position: absolute;
     inset: 0;
     scale: 1.87;
     z-index: -1;
-    opacity: 0.1;
+    opacity: var(--effect-opacity);
+    text-shadow: var(--stroke-width) 0 var(--before-stroke-color),
+    var(--stroke-width-negative) 0px var(--before-stroke-color),
+    0 var(--stroke-width) var(--before-stroke-color),
+    0px var(--stroke-width-negative) var(--before-stroke-color);
+    transition: text-shadow .25s linear, color .25s linear, opacity .25s ease-in-out;
   }
   &::after {
     content: attr(title);
     position: absolute;
+  
     inset: 0;
     scale: 1.55;
     z-index: -1;
-    // opacity: 0.1;
-    color: rgba(255, 246, 247, 1);
+    opacity: var(--effect-opacity);
+    color: var(--after-text-color);
     text-shadow: none;
+    transition: color .25s linear, opacity .25s ease-in-out;
+   
   }
 }
 
@@ -88,6 +111,7 @@ h1 {
   width: 52%;
   scale: 0.52;
   transition: scale 0.5s cubic-bezier(0.38, 1.19, 0.87, 1.14);
+  z-index: 2;
 }
 
 .hero__image {
@@ -97,4 +121,6 @@ h1 {
   transform-origin: bottom;
   transition: scale 0.5s cubic-bezier(0.38, 1.19, 0.87, 1.14);
   inset: 0;
+  z-index: 2;
+
 }
