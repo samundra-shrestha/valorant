@@ -1,14 +1,15 @@
 @import url("https://fonts.cdnfonts.com/css/first-job");
 // @import url("https://fonts.cdnfonts.com/css/valorant");
 @import url("https://fonts.cdnfonts.com/css/xifiction");
-@import url("https://fonts.googleapis.com/css2?family=Fredoka&family=Roboto:wght@400;900&display=swap");
+@import url("https://fonts.cdnfonts.com/css/fredoka-one");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap");
 
 :root {
   // fonts
   --highlight-font: "VALORANT", sans-serif;
   --primary-font: "Roboto", sans-serif;
   --name-font: "First Job", sans-serif;
-  --btn-font: "Fredoka", sans-serif;
+  --btn-font: "Fredoka One", sans-serif;
   --role-font: "Xifiction", sans-serif;
 
   // color
@@ -43,13 +44,13 @@ main {
   height: 100vh;
   background-color: var(--bg-color);
   transform-origin: center center;
-  transition: background-color .15s ease-in-out;
+  transition: background-color 0.15s ease-in-out;
 }
 
-.logo{
+.logo {
   position: absolute;
   left: 2.084%;
-  top:4.392%;
+  top: 4.392%;
   width: 2.5523vw;
 }
 
@@ -76,7 +77,7 @@ h1 {
   // top: 50%;
   // left: 50%;
   // transform: translate(-50%, -50%);
-  transition: opacity .5s linear;
+  transition: opacity 0.5s linear;
   &::before {
     color: var(--before-text-color);
     content: attr(title);
@@ -86,23 +87,23 @@ h1 {
     z-index: -1;
     opacity: var(--effect-opacity);
     text-shadow: var(--stroke-width) 0 var(--before-stroke-color),
-    var(--stroke-width-negative) 0px var(--before-stroke-color),
-    0 var(--stroke-width) var(--before-stroke-color),
-    0px var(--stroke-width-negative) var(--before-stroke-color);
-    transition: text-shadow .25s linear, color .25s linear, opacity .25s ease-in-out;
+      var(--stroke-width-negative) 0px var(--before-stroke-color),
+      0 var(--stroke-width) var(--before-stroke-color),
+      0px var(--stroke-width-negative) var(--before-stroke-color);
+    transition: text-shadow 0.25s linear, color 0.25s linear,
+      opacity 0.25s ease-in-out;
   }
   &::after {
     content: attr(title);
     position: absolute;
-  
+
     inset: 0;
     scale: 1.55;
     z-index: -1;
     opacity: var(--effect-opacity);
     color: var(--after-text-color);
     text-shadow: none;
-    transition: color .25s linear, opacity .25s ease-in-out;
-   
+    transition: color 0.25s linear, opacity 0.25s ease-in-out;
   }
 }
 
@@ -117,10 +118,67 @@ h1 {
 .hero__image {
   position: absolute;
   bottom: 0;
-  scale: .35;
+  scale: 0.35;
   transform-origin: bottom;
   transition: scale 0.5s cubic-bezier(0.38, 1.19, 0.87, 1.14);
   inset: 0;
   z-index: 2;
+}
 
+.name__box {
+  position: absolute;
+  --name-color: var(--black);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    font-family: var(--name-font);
+    font-size: 6.66666vw;
+    line-height: 1.15;
+    font-weight: 400;
+    color: var(--name-color);
+    scale: 0.3;
+    transition: scale 0.5s cubic-bezier(0.38, 1.19, 0.87, 1.14),
+      color 0.15s linear;
+      --after-opacity: 0;
+    &:after {
+      content: attr(title);
+      position: absolute;
+      color: var(--yellow);
+      left: 0;
+      top: -15%;
+      z-index: -1;
+      height: 21%;
+      overflow: hidden;
+      opacity: var(--after-opacity);
+      transition: opacity 0.25s linear;
+    }
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+    font-family: var(--btn-font);
+    font-size: 1.25vw;
+    display: flex;
+    align-items: center;
+    gap: 0.625vw;
+    color: var(--white);
+    // opacity: 0;
+    // transition: opacity 0.25s linear;
+  }
+  svg {
+    width: 2.136vw;
+  }
+}
+
+.left__side {
+  left: 9.5%;
+  bottom: 16%;
+  align-items: flex-end;
+}
+
+.right__side {
+  right: 19%;
+  bottom: 20.5%;
 }

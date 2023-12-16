@@ -12,11 +12,15 @@ export default function Home() {
   const heroImageRef = useRef();
   const backgroundRef = useRef();
   const headingRef = useRef();
+  const nameOneRef = useRef();
+  const nameTwoRef = useRef();
   useEffect(() => {
     const logo = largeLogoRef.current;
     const hero = heroImageRef.current;
     const bg = backgroundRef.current;
     const heading = headingRef.current;
+    const nameOne = nameOneRef.current;
+    const nameTwo = nameTwoRef.current;
 
 
     setTimeout(function () {
@@ -27,11 +31,17 @@ export default function Home() {
       heading.style.setProperty("--before-text-color", "var(--red)");
       heading.style.setProperty("--after-text-color", "var(--white)");
       heading.style.setProperty("--effect-opacity", "1");
+      nameOne.style.setProperty("--name-color", "var(--white)")
+      nameTwo.style.setProperty("--name-color", "var(--white)")
+      nameOne.style.setProperty("--after-opacity", "1")
+      nameTwo.style.setProperty("--after-opacity", "1")
+      nameOne.style.scale="1";
+      nameTwo.style.scale="1";
 
       setTimeout(function () {
         heading.style.opacity = "0";
       })
-    }, 500)
+    }, 750)
     console.log(logo, hero)
   })
   return (
@@ -70,6 +80,28 @@ export default function Home() {
         </div>
         <div className="hero__image " ref={heroImageRef}>
           <Image src={heroImage} alt='asd' />
+        </div>
+        <div className="left__side name__box">
+          <h2 title="PHOENIX" ref={nameOneRef}>
+            PHOENIX
+          </h2>
+          <a href="#">
+            <svg width="100%" height="100%" viewBox="0 0 41 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 12.5C24 19.1274 18.6274 24.5 12 24.5C5.37258 24.5 0 19.1274 0 12.5C0 5.87258 5.37258 0.5 12 0.5C18.6274 0.5 24 5.87258 24 12.5Z" fill="white" fill-opacity="0.2" />
+              <path d="M18 12.5V14.5H41L34 6.5H32L37 12.5H18Z" fill="white" />
+            </svg>
+            Catch Phoenix</a>
+        </div>
+        <div className="right__side name__box">
+          <h2 title="JETT" ref={nameTwoRef}>
+            JETT
+          </h2>
+          <a href="#">
+            <svg width="100%" height="100%" viewBox="0 0 41 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 12.5C24 19.1274 18.6274 24.5 12 24.5C5.37258 24.5 0 19.1274 0 12.5C0 5.87258 5.37258 0.5 12 0.5C18.6274 0.5 24 5.87258 24 12.5Z" fill="white" fill-opacity="0.2" />
+              <path d="M18 12.5V14.5H41L34 6.5H32L37 12.5H18Z" fill="white" />
+            </svg>
+            Catch Jett</a>
         </div>
       </main>
     </>
