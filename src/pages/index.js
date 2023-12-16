@@ -11,7 +11,7 @@ export default function Home() {
   const largeLogoRef = useRef();
   const heroImageRef = useRef();
   const backgroundRef = useRef();
-  const headingRef =useRef();
+  const headingRef = useRef();
   useEffect(() => {
     const logo = largeLogoRef.current;
     const hero = heroImageRef.current;
@@ -20,15 +20,15 @@ export default function Home() {
 
 
     setTimeout(function () {
-      logo.style.scale="1";
-      hero.style.scale=".92";
+      logo.style.scale = "1";
+      hero.style.scale = ".92";
       bg.style.setProperty("--bg-color", "var(--red)");
       heading.style.setProperty("--before-stroke-color", "var(--white)");
       heading.style.setProperty("--before-text-color", "var(--red)");
       heading.style.setProperty("--after-text-color", "var(--white)");
       heading.style.setProperty("--effect-opacity", "1");
 
-      setTimeout(function(){
+      setTimeout(function () {
         heading.style.opacity = "0";
       })
     }, 500)
@@ -41,12 +41,28 @@ export default function Home() {
         <meta name="description" content="Valorant is a free-to-play first-person tactical hero shooter developed and published by Riot Games, for Windows." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
-        <link rel="stylesheet"  href="https://fonts.cdnfonts.com/css/valorant" />
-                
+        <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/valorant" />
+
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Valorant " />
+        <meta property="og:description"
+          content="Valorant is a free-to-play first-person tactical hero shooter developed and published by Riot Games, for Windows." />
+        <meta property="og:site_name" content="Valorant" />
+        <meta property="og:image" content="/og-image.png" />
+        <meta property="og:image:secure_url" content="/og-image.png" />
+        <meta property="og:image:width" content="500" />
+        <meta property="og:image:height" content="363" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:description"
+          content="Valorant is a free-to-play first-person tactical hero shooter developed and published by Riot Games, for Windows." />
+        <meta name="twitter:title" content="Valorant" />
+        <meta name="twitter:image" content="/og-image.png" />
+
       </Head>
       <main ref={backgroundRef}>
         <div className="logo">
-          <Image src={logo} alt='logo'/>
+          <Image src={logo} alt='logo' />
         </div>
         <h1 title="Valorant" ref={headingRef}>Valorant</h1>
         <div className="large__logo" ref={largeLogoRef}>
